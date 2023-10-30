@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class BlogControllerTest {
 
+	// Ctrl + Space 자동 완성
 	// http://localhost:8080/test/hello
 	@GetMapping("/test/hello")
 	public String hello() {
