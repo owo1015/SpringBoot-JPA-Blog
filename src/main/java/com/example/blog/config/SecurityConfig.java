@@ -44,13 +44,7 @@ public class SecurityConfig {
         			.loginPage("/auth/loginForm").permitAll()
         			.loginProcessingUrl("/auth/loginProc")
         			.defaultSuccessUrl("/"));
-
-//      	.logout((logout) -> logout
-//      	.logoutRequestMatcher(new AntPathRequestMatcher("/user/logout"))
-//      	.logoutSuccessUrl("/")
-//      	.invalidateHttpSession(true));
         
 		return http.build();
 	}
-	
 }

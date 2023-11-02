@@ -13,7 +13,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
@@ -35,7 +34,8 @@ public class Board {
 	@Column(nullable = false, length = 100)
 	private String title; // 제목
 	
-	@Lob // 대용량 데이터
+	// @Lob // 대용량 데이터 (안 먹어?!!)
+	@Column(columnDefinition = "LONGTEXT")
 	private String content; // 내용
 	
 	@ColumnDefault("0")
