@@ -17,4 +17,10 @@ public class UserController {
 		// /WEB-INF/views/user/loginForm.jsp
 		return "user/loginForm";
 	}
+	
+	@GetMapping("/user/updateForm")
+	public String updateForm() {
+		// /WEB-INF/views/user/updateForm.jsp
+		return "user/updateForm";
+	}
 }

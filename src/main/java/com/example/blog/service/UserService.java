@@ -28,6 +28,20 @@ public class UserService {
 		userRepository.save(user);
 	}
 	
+	@Transactional
+	public void modify(User user) {
+		// 영속성 컨텍스트에 User를 영속화한 후 영속화된 User를 수정
+		// 수정 함수 종료 = 서비스 종료 = 트랜잭션 종료 = 자동 커밋
+		User persistance = userRepository.findById(user.getId())
+				.orElseThrow(()->{
+					return new IllegalArgumentException("회원 찾기 실패 : 아이디를 찾을 수 없습니다.");
+				});
+		String rawPassword = user.getPassword();
+		String encPassword = encoder.encode(rawPassword);
+		persistance.setPassword(encPassword);
+		persistance.setEmail(user.getEmail());
+	}
+	
 }
 
 /*

@@ -40,4 +40,12 @@ public class Reply {
 	
 	@CreationTimestamp
 	private Timestamp createDate; // 생성날짜
+	
+	/*
+	public void update(User user, Board board, String content) {
+		setUser(user);
+		setBoard(board);
+		setContent(content);
+	}
+	*/
 }

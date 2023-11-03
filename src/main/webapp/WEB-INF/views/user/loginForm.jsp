@@ -8,7 +8,7 @@
 			<label for="username" class="form-label">아이디:</label>
 			<input type="text" name="username" class="form-control" id="username">
 		</div>
-		<div class="mb-3">
+		<div class="mb-5">
 			<label for="password" class="form-label">비밀번호:</label>
 			<input type="password" name="password" class="form-control" id="password">
 		</div>

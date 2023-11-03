@@ -3,6 +3,9 @@ let index = {
 		$("#btn-save").on("click", ()=>{
 			this.save();
 		});
+		$("#btn-update").on("click", ()=>{
+			this.update();
+		});
 	},
 	
 	save: function() {
@@ -23,10 +26,37 @@ let index = {
 			dataType: "json"
 		}).done(function(resp){
 			// 성공
-			alert("회원가입이 완료되었습니다.");
-			location.href="/";
+			if(resp.status === 500) {
+				alert("회원가입에 실패하였습니다.");
+			}
+			else {
+				alert("회원가입이 완료되었습니다.");
+				location.href="/";
+			}
 		}).fail(function(){
 			// 실패
+			alert(JSON.stringify(error));
+		});
+	},
+	
+	update: function() {
+		let data = {
+			id: $("#id").val(),
+			username: $("#username").val(),
+			password: $("#password").val(),
+			email: $("#email").val()
+		};
+
+		$.ajax({
+			type: "PUT",
+			url: "/user",
+			data: JSON.stringify(data),
+			contentType: "application/json; charset=utf-8",
+			dataType: "json"
+		}).done(function(resp){
+			alert("수정이 완료되었습니다.");
+			location.href="/";
+		}).fail(function(){
 			alert(JSON.stringify(error));
 		});
 	}

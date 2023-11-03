@@ -2,6 +2,26 @@
 
 <%@ include file="layout/header.jsp"%>
 
+<style>
+.page-link {
+  color: #000; 
+  background-color: #fff;
+  border: 1px solid #ccc; 
+}
+.page-item.active .page-link {
+ z-index: 1;
+ color: #555;
+ font-weight:bold;
+ background-color: #f1f1f1;
+ border-color: #ccc;
+}
+.page-link:focus, .page-link:hover {
+  color: #000;
+  background-color: #fafafa; 
+  border-color: #ccc;
+}
+</style>
+
 <div class="container">
 
 	<c:forEach var="board" items="${boards.content}">
@@ -16,19 +36,19 @@
 	<ul class="pagination justify-content-center mt-4">
 		<c:choose>
 			<c:when test="${boards.first}">
-				<li class="page-item disabled"><a class="page-link" href="?page=${boards.number-1 }">Previous</a></li>
+				<li class="page-item disabled"><a class="page-link" href="?page=${boards.number-1 }">이전</a></li>
 			</c:when>
 			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="?page=${boards.number-1 }">Previous</a></li>
+				<li class="page-item"><a class="page-link" href="?page=${boards.number-1 }">이전</a></li>
 			</c:otherwise>
 		</c:choose>
 
 		<c:choose>
 			<c:when test="${boards.last}">
-				<li class="page-item disabled"><a class="page-link" href="?page=${boards.number+1 }">Next</a></li>
+				<li class="page-item disabled"><a class="page-link" href="?page=${boards.number+1 }">다음</a></li>
 			</c:when>
 			<c:otherwise>
-				<li class="page-item"><a class="page-link" href="?page=${boards.number+1 }">Next</a></li>
+				<li class="page-item"><a class="page-link" href="?page=${boards.number+1 }">다음</a></li>
 			</c:otherwise>
 		</c:choose>
 	</ul>
